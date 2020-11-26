@@ -22,7 +22,7 @@ class ToDo extends Component {
     })
   }
 
-  addTast = ({ key }) => {
+  handleKeyPress = ({ key }) => {
     const { taskText } = this.state; console.log(55);
     if (taskText.length > 3 && key === 'Enter') {
       const { addTast } = this.props;
@@ -44,7 +44,7 @@ class ToDo extends Component {
 
     return (
       <div className="todo-wrapper">
-        <ToDoInput onKeyPress={this.addTast} onChange={this.handleInputChange} value={taskText} />
+        <ToDoInput onKeyPress={this.handleKeyPress} onChange={this.handleInputChange} value={taskText} />
         {isTasksExist && <ToDoList tasksList={tasks} />}
         {isTasksExist && <Footer amount={tasks.length} activeFilter={activeFilter} />}
       </div>
