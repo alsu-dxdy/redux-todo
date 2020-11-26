@@ -19,10 +19,11 @@ const TASKS = [
 ];
 
 const tasks = (state = TASKS, { id, text, isCompleted, type }) => {
+  // 3) Внутри Ред-ра в конст-ии входим в нужный кейс
   switch (type) {
-    case ADD_TASK :
-      return [
-        ...state, {
+    case ADD_TASK:
+      return [ // 5) Ред-р возвращает новое состояние Redux-стора
+        ...state, { // 4) Добавляем задачу в текущий ...state
           id,
           text,
           isCompleted,

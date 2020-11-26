@@ -22,11 +22,13 @@ class ToDo extends Component {
     })
   }
 
+  // 1) В handleKeyPress вызываем созданый Э addTast
   handleKeyPress = ({ key }) => {
     const { taskText } = this.state; console.log(55);
     if (taskText.length > 3 && key === 'Enter') {
+      // После подключения addTast в connect, данный Э становится доступным в К в св-ве this.props
       const { addTast } = this.props;
-
+      // в Э передаем 3 аргумента:
       addTast((new Date()).getTime(), taskText, false);
 
       this.setState({
@@ -36,7 +38,7 @@ class ToDo extends Component {
     }
 
   }
-
+  // 2) addTast срабатывает и перехватывается Редьюсером
   render() {
     const { activeFilter, taskText } = this.state;
     const { tasks } = this.props;
@@ -51,13 +53,14 @@ class ToDo extends Component {
     );
   }
 }
-
+// 5) Ком-ты, к к-ым подключен state, следят за его обнов-ем и перехватывают эти изменения state-а,
+// получая новые Д, т е пропсы
 export default connect(state => ({
   tasks: state.tasks,
 }), { addTast })(ToDo);
-
-
-
+// После экспорта Э пробрасываем его в объект, к-ый идет 2м аргументом в ф connect
+// В эту ф пробрасываем Redux-state и возвращаем из него объ со св-вом tasks,
+// к-му присваиваем зн-ие state.tasks
 
 
 
