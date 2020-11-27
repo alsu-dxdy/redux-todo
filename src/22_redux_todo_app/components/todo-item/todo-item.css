@@ -41,24 +41,20 @@
 
 .fa-plus:before {
   content: "+";
-  /* content: "\f067"; */
+  content: "\f067";
 }
 
 .fa-circle:before {
   content: "O";
-  /* content: "\f058"; */
+  content: "\f111";
 }
 
 .fa-check-circle:before {
   content: "V";
-  /* content: "\f058"; */
+  content: "\f058";
 }
 
 .fa-times:before {
   content: "X";
-  /* content: "\f111"; */
-}
-
-.fa, .far, .fas {
-  font-family: "Font Awesome 5 Free";
+  content: "\f00d";
 }
