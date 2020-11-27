@@ -1,12 +1,10 @@
-
-
 #  Redux-todo
 
 ### Описание проекта:
 В данном проекте создается приложение - список задач. Реализована возможность добавления, удаления задачи, а также возможность отметить задачи как выполненные. 
 
-За основу взяты видеоуроки:
-[React & Redux ](https://youtu.be/2vujABNBFAY)
+### Публикация:
+https://alsu-dxdy.github.io/redux-todo/
 
 ### Стек проекта:
 - React
@@ -15,7 +13,10 @@
 ### Планы по развитию проекта:
 Добавить возможность фильтрации задач и сохранения задач в localstorage.
 
-## Полезные ссылки:
+В проекте использованы материалы видеокурса:
+[React & Redux](https://youtu.be/2vujABNBFAY)
+
+### Полезные ссылки:
 - [React (документация)](https://reactjs.org/docs/getting-started.html)
 - [Redux (документация)](https://redux.js.org/)
 - [React Animations (документация)](https://reactcommunity.org/react-transition-group/)
