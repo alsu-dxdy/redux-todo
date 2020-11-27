@@ -39,6 +39,26 @@
   color: rgba(175, 47, 47, 0.9);
 }
 
+.fa-plus:before {
+  content: "+";
+  /* content: "\f067"; */
+}
+
+.fa-circle:before {
+  content: "O";
+  /* content: "\f058"; */
+}
+
+.fa-check-circle:before {
+  /* content: "\f058"; */
+  content: "V";
+}
+
 .fa-times:before {
   content: "X";
+  /* content: "\f111"; */
+}
+
+.fa, .far, .fas {
+  font-family: "Font Awesome 5 Free";
 }
