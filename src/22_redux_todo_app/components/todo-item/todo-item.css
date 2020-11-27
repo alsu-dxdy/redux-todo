@@ -50,8 +50,8 @@
 }
 
 .fa-check-circle:before {
-  /* content: "\f058"; */
   content: "V";
+  /* content: "\f058"; */
 }
 
 .fa-times:before {
