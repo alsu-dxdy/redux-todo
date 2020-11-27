@@ -21,8 +21,7 @@
   text-decoration: line-through;
 }
 
-.completed,
-.fa-check-circle {
+.completed, .fa-check-circle {
   color: #ccc;
 }
 
@@ -38,4 +37,8 @@
 
 .todo-item:hover .fa-times {
   color: rgba(175, 47, 47, 0.9);
+}
+
+.fa-times:before {
+  content: "X";
 }
