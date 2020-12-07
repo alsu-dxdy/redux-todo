@@ -24,7 +24,7 @@ class ToDo extends Component {
 
   // 1) В handleKeyPress вызываем созданый Э addTast
   handleKeyPress = ({ key }) => {
-    const { taskText } = this.state; console.log(55);
+    const { taskText } = this.state;
     if (taskText.length > 3 && key === 'Enter') {
       // После подключения addTast в connect, данный Э становится доступным в К в св-ве this.props
       const { addTast } = this.props;
