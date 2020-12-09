@@ -13,7 +13,7 @@ https://alsu-dxdy.github.io/redux-todo/
 - JS
 
 ### Планы по развитию проекта:
-Добавить возможность фильтрации задач и сохранения задач в localstorage.
+Добавить возможность сохранения задач в localstorage.
 
 В проекте использованы материалы видеокурса:
 [React & Redux](https://youtu.be/2vujABNBFAY)
