@@ -69,7 +69,7 @@ class ToDo extends Component {
       <div className="todo-wrapper">
         <ToDoInput onKeyPress={this.handleKeyPress} onChange={this.handleInputChange} value={taskText} />
         {isTasksExist && <ToDoList tasksList={filteredTasks} removeTask={removeTask} completeTask={completeTask} />}
-        {isTasksExist && <Footer activeFilter={filters} changeFilter={changeFilter} amount={taskCounter.length} />}
+        {isTasksExist && <Footer activeFilter={filters} changeFilter={changeFilter} amount={taskCounter} />}
       </div>
     );
   }
