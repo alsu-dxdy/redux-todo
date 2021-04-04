@@ -21,3 +21,4 @@ export const changeFilter = activeFilter => ({
   type: CHANGE_FILTER,
   activeFilter
 });
+// change in actionCreator.js only
