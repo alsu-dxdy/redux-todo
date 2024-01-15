@@ -46,10 +46,8 @@ class ToDo extends Component {
     switch (activeFilter) {
       case 'completed':
         return tasks.filter(task => task.isCompleted);
-        break;
       case 'active':
         return tasks.filter(task => !task.isCompleted);
-        break;
       default:
         return tasks;
     }
