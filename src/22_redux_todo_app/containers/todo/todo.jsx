@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import { addTast, removeTask, completeTask, changeFilter } from '../../actions/actionCreator';
+import { addTast, removeTask, completeTask, changeFilter } from '../../actions/actionCreator'
 
-import ToDoInput from '../../components/todo-input/todo-input';
-import ToDoList from '../../components/todo-list/todo-list';
-import Footer from '../../components/footer/footer';
+import ToDoInput from '../../components/todo-input/todo-input'
+import ToDoList from '../../components/todo-list/todo-list'
+import Footer from '../../components/footer/footer'
 
-import './todo.css';
+import './todo.css'
 
 class ToDo extends Component {
-
   state = {
     // activeFilter: 'all',
-    taskText: ''
+    taskText: '',
   }
 
   handleInputChange = ({ target: { value } }) => {
@@ -24,19 +23,17 @@ class ToDo extends Component {
 
   // 1) В handleKeyPress вызываем созданый Э addTast
   handleKeyPress = ({ key }) => {
-    const { taskText } = this.state;
+    const { taskText } = this.state
     if (taskText.length > 3 && key === 'Enter') {
       // После подключения addTast в connect, данный Э становится доступным в К в св-ве this.props
-      const { addTast } = this.props;
+      const { addTast } = this.props
       // в Э передаем 3 аргумента:
-      addTast((new Date()).getTime(), taskText, false);
+      addTast(new Date().getTime(), taskText, false)
 
       this.setState({
         taskText: '',
       })
-
     }
-
   }
   // 2) addTast срабатывает и перехватывается Редьюсером
 
@@ -45,23 +42,23 @@ class ToDo extends Component {
   filterTasks = (tasks, activeFilter) => {
     switch (activeFilter) {
       case 'completed':
-        return tasks.filter(task => task.isCompleted);
+        return tasks.filter(task => task.isCompleted)
       case 'active':
-        return tasks.filter(task => !task.isCompleted);
+        return tasks.filter(task => !task.isCompleted)
       default:
-        return tasks;
+        return tasks
     }
   }
 
-  getActiveTasksCounter = tasks => tasks.filter(task => !task.isCompleted).length;
+  getActiveTasksCounter = tasks => tasks.filter(task => !task.isCompleted).length
 
   render() {
-    const { taskText } = this.state;
-    const { tasks, removeTask, completeTask, filters, changeFilter } = this.props; // из пропсов вытягиваем Э removeTask, после чего этот..
+    const { taskText } = this.state
+    const { tasks, removeTask, completeTask, filters, changeFilter } = this.props // из пропсов вытягиваем Э removeTask, после чего этот..
     // .. Э removeTask передаем в виде пропсов в <ToDoList/>
-    const isTasksExist = tasks && tasks.length > 0;
-    const filteredTasks = this.filterTasks(tasks, filters);
-    const taskCounter = this.getActiveTasksCounter(tasks);
+    const isTasksExist = tasks && tasks.length > 0
+    const filteredTasks = this.filterTasks(tasks, filters)
+    const taskCounter = this.getActiveTasksCounter(tasks)
 
     return (
       <div className="todo-wrapper">
@@ -69,15 +66,18 @@ class ToDo extends Component {
         {isTasksExist && <ToDoList tasksList={filteredTasks} removeTask={removeTask} completeTask={completeTask} />}
         {isTasksExist && <Footer activeFilter={filters} changeFilter={changeFilter} amount={taskCounter} />}
       </div>
-    );
+    )
   }
 }
 // 6) Ком-ты, к к-ым подключен state, следят за его обнов-ем и перехватывают эти изменения state-а,
 // получая новые Д, т е пропсы
-export default connect(state => ({
-  tasks: state.tasks,
-  filters: state.filters,
-}), { addTast, removeTask, completeTask, changeFilter })(ToDo);
+export default connect(
+  state => ({
+    tasks: state.tasks,
+    filters: state.filters,
+  }),
+  { addTast, removeTask, completeTask, changeFilter },
+)(ToDo)
 // После экспорта Э пробрасываем его в объект, к-ый идет 2м аргументом в ф connect
 // В эту ф пробрасываем Redux-state и возвращаем из него объ со св-вом tasks,
 // к-му присваиваем зн-ие state.tasks

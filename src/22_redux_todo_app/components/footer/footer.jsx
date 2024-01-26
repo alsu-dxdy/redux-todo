@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import './footer.css';
+import './footer.css'
 
 const FILTERS_BTN = [
   {
@@ -14,9 +14,9 @@ const FILTERS_BTN = [
   },
   {
     text: 'Completed',
-    id: 'completed'
-  }
-];
+    id: 'completed',
+  },
+]
 
 const Footer = ({ amount, activeFilter, changeFilter }) => (
   <div className="footer">
@@ -24,14 +24,18 @@ const Footer = ({ amount, activeFilter, changeFilter }) => (
     <div className="btn-group">
       {FILTERS_BTN.map(({ text, id }) => (
         <button
-          onClick={() => { changeFilter(id) }}
+          onClick={() => {
+            changeFilter(id)
+          }}
           key={id}
-          className={id === activeFilter ? "filter-btn active" : 'filter-btn'}
-        >{text}</button>
+          className={id === activeFilter ? 'filter-btn active' : 'filter-btn'}
+        >
+          {text}
+        </button>
       ))}
     </div>
   </div>
-);
+)
 
 Footer.propTypes = {
   amount: PropTypes.number,
@@ -43,4 +47,4 @@ Footer.defaultProps = {
   activeFilter: 'all',
 }
 
-export default Footer;
+export default Footer
